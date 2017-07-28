@@ -1,0 +1,25 @@
+//使用map解决这个问题，首先，将所有的二元组（nums[i]，i）插入，然后再遍历数组，寻找对应适配的complement
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        
+        
+        //1、首先建立map<nums[i],i>;
+        map<int,int>hash;
+        //2、将所有数组的数据装入map
+        for(int i=0;i<nums.size();i++)
+            hash[nums[i]]=i;
+        //在map中寻找相应数据
+        for(int i=0;i<nums.size();i++){
+            int complement=target-nums[i];
+            //确保不会使用同一个数两次
+            if(hash.find(complement)!=find.end()&&hash[complement]!=i){
+                  vector<int> result;
+                  result.push_back(hash[complement]);
+                  result.push_back(i);
+                  return result;
+            }
+        }
+          
+    }
+};
